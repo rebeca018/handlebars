@@ -1,1 +1,11 @@
-<h2>Home</h2>
+<h2>Usuários cadastrados</h2>
+
+{{#if usuarios}}
+    <ul>
+        {{#each usuarios}}
+            <li>{{this.nome}} - {{this.endereco}}</li>
+        {{/each}}
+    </ul>
+{{else}}
+    <p>Não há usuarios cadastrados...</p>
+{{/if}}

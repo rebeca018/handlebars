@@ -6,8 +6,19 @@ const app = express();
 app.engine("handlebars", exphbs.engine());
 app.set("view engine", "handlebars");
 
+var usuarios = [
+    {
+        nome: "Rebeca",
+        endereco: "Rua Jair Abranches Mella, nº 2104"
+    },
+    {
+        nome: "Fulano",
+        endereco: "Rua XXXXXXXXXXX, nº ...."
+    }
+];
+
 app.get("/", (req, res) =>{
-    res.render("home");
+    res.render("home", {usuarios});
 });
 
 app.get("/novo", (req, res) =>{
@@ -15,7 +26,12 @@ app.get("/novo", (req, res) =>{
 });
 
 app.get("/usuario/:id", (req, res) =>{
-    res.render("usuario");
+    let usuario = {
+       nome: "Rebeca",
+       endereco: ""
+    }
+
+    res.render("usuario", usuario);
 });
 
 app.listen(8000, ()=>{
